@@ -99,7 +99,13 @@ def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
     # - Usar enumerate() para obtener índice y carácter
     # - Si el carácter coincide con la letra, reemplazar en palabra_oculta
     # - Puedes convertir palabra_oculta a lista, modificar y volver a string
-    pass
+    lista_palabra_oculta = list(palabra_oculta)
+
+    for indice, caracter in enumerate(palabra):
+        if caracter == letra:
+            lista_palabra_oculta[indice] = letra
+
+    return "".join(lista_palabra_oculta)
 
 
 def jugar():
@@ -124,6 +130,11 @@ def jugar():
     # - intentos: número de intentos restantes
     # - letras_usadas: lista vacía
     # - juego_terminado: False
+    palabra_oculta = "_"*len(palabra)
+    intentos = INTENTOS_MAXIMOS
+    letras_usadas = []
+    juego_terminado = False
+    
     
     print("Jugador 2: ¡Adivina la palabra!\n")
     
@@ -139,11 +150,31 @@ def jugar():
     #   5. Si la letra NO está en la palabra:
     #      - Restar un intento
     #      - Mostrar mensaje de fallo
+    while intentos > 0 and not juego_terminado:
+        mostrar_estado(palabra_oculta, intentos, letras_usadas)
+        letra = solicitar_letra(letras_usadas)
+
+        if letra in palabra:
+            palabra_oculta = actualizar_palabra_oculta(palabra, palabra_oculta, letra)
+            print(f"¡Bien! La letra {letra} está en la palabra.")
+            print("\n")
+        else:
+            intentos -= 1
+            print("¡Letra incorrecta!")
+            print("\n")
+        if "_" not in palabra_oculta:
+            juego_terminado = True
+
+
     
     # TODO: Mostrar mensaje final
     # - Si ganó: mostrar felicitación y la palabra
     # - Si perdió: mostrar mensaje de derrota y la palabra correcta
-    pass
+    if juego_terminado == True:
+        print(f"¡FELICIDADES! Has adivinado la palabra: {palabra}")
+    else:
+        print("¡GAME OVER! Te has quedado sin intentos.")
+        print(f"La palabra era: {palabra}")
 
 
 def main():
