@@ -34,7 +34,10 @@ def solicitar_palabra():
     # - Verificar que tenga al menos 5 caracteres (len())
     # - Verificar que solo contenga letras (isalpha())
     # - Convertir a mayúsculas (upper())
-    pass
+    palabra = input("Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): ").upper()
+    while len(palabra) < 5 or not palabra.isalpha():
+        palabra = input("Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): ").upper()
+    return palabra
 
 
 def solicitar_letra(letras_usadas):
@@ -54,7 +57,12 @@ def solicitar_letra(letras_usadas):
     # - Verificar que sea una letra (isalpha())
     # - Verificar que no esté en letras_usadas (operador 'in')
     # - Convertir a mayúsculas (upper())
-    pass
+    letra = input("Introduce una letra: ").upper()
+    letras_usadas = [""]
+    while len(letra) != 1 or not letra.isalpha() or letra in letras_usadas:
+        letra = input("Introduce una letra: ").upper()
+    letras_usadas.append(letra)
+    return letra
 
 
 def mostrar_estado(palabra_oculta, intentos, letras_usadas):
@@ -104,9 +112,11 @@ def jugar():
     
     # TODO: Solicitar la palabra al jugador 1
     # palabra = solicitar_palabra()
+    palabra = solicitar_palabra()
     
     # TODO: Limpiar la pantalla para que el jugador 2 no vea la palabra
     # limpiar_pantalla()
+    limpiar_pantalla()
     
     # TODO: Inicializar variables del juego
     # - palabra_oculta: string con guiones bajos (ej: "_ _ _ _ _")
@@ -143,8 +153,11 @@ def main():
     
     # TODO (Opcional): Preguntar si quiere jugar otra vez
     # jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
+    jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
     # if jugar_otra_vez.lower() == 's':
     #     main()
+    if jugar_otra_vez.lower() == "s":
+        main()
 
 
 if __name__ == "__main__":
