@@ -58,7 +58,6 @@ def solicitar_letra(letras_usadas):
     # - Verificar que no esté en letras_usadas (operador 'in')
     # - Convertir a mayúsculas (upper())
     letra = input("Introduce una letra: ").upper()
-    letras_usadas = [""]
     while len(letra) != 1 or not letra.isalpha() or letra in letras_usadas:
         letra = input("Introduce una letra: ").upper()
     letras_usadas.append(letra)
@@ -78,7 +77,9 @@ def mostrar_estado(palabra_oculta, intentos, letras_usadas):
     # - Imprimir intentos restantes
     # - Imprimir la palabra con espacios entre caracteres
     # - Imprimir las letras usadas
-    pass
+    print(f"Intentos restantes: {intentos}")
+    print("Palabra: " + " ".join(palabra_oculta))
+    print(f"Letras usadas: {letras_usadas}")
 
 
 def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
