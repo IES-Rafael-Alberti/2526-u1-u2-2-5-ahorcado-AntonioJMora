@@ -81,7 +81,6 @@ def mostrar_estado(palabra_oculta, intentos, letras_usadas):
     print("Palabra: " + " ".join(palabra_oculta))
     print(f"Letras usadas: {letras_usadas}")
 
-
 def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
     """
     Actualiza la palabra oculta revelando las apariciones de la letra
@@ -113,18 +112,18 @@ def jugar():
     Función principal que ejecuta el juego del ahorcado
     """
     print("=== JUEGO DEL AHORCADO ===\n")
-    
+
     # Configuración inicial
     INTENTOS_MAXIMOS = 5
-    
+
     # TODO: Solicitar la palabra al jugador 1
     # palabra = solicitar_palabra()
     palabra = solicitar_palabra()
-    
+
     # TODO: Limpiar la pantalla para que el jugador 2 no vea la palabra
     # limpiar_pantalla()
     limpiar_pantalla()
-    
+
     # TODO: Inicializar variables del juego
     # - palabra_oculta: string con guiones bajos (ej: "_ _ _ _ _")
     # - intentos: número de intentos restantes
@@ -134,10 +133,9 @@ def jugar():
     intentos = INTENTOS_MAXIMOS
     letras_usadas = []
     juego_terminado = False
-    
-    
+
     print("Jugador 2: ¡Adivina la palabra!\n")
-    
+
     # TODO: Bucle principal del juego
     # - Mientras haya intentos y el juego no haya terminado:
     #   1. Mostrar el estado actual
@@ -165,8 +163,6 @@ def jugar():
         if "_" not in palabra_oculta:
             juego_terminado = True
 
-
-    
     # TODO: Mostrar mensaje final
     # - Si ganó: mostrar felicitación y la palabra
     # - Si perdió: mostrar mensaje de derrota y la palabra correcta
@@ -182,7 +178,7 @@ def main():
     Punto de entrada del programa
     """
     jugar()
-    
+
     # TODO (Opcional): Preguntar si quiere jugar otra vez
     # jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
     jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
@@ -190,7 +186,6 @@ def main():
     #     main()
     if jugar_otra_vez.lower() == "s":
         main()
-
 
 if __name__ == "__main__":
     main()
