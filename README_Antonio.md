@@ -17,3 +17,6 @@ Otro ejemplo es si lo ponemos al principio, para ver el valor de todo:
 ![Mostrar valor de las variables](variables.png)
 
 ## Documentación
+He cambiado la documentación a docstrings en formato NumPy style, que es el más usado en entornos científicos, universidades y librerías.
+
+[Ver codigo](src/ahorcado.py)
